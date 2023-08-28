@@ -6,6 +6,11 @@
     <string name="pleaseWait">Please Wait...</string>
     <string name="titleMovies">Movies</string>
     <string name="titleDetails">Details</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="strDescription">Description:</string>
+    <string name="strPopularity">Popularity:</string>
+    <string name="strVoteAverage">Vote average:</string>
+    <string name="strVoteCount">Vote count:</string>
+    <string name="strAdult">Adult:</string>
+    <string name="strVideo">Video:</string>
+    <string name="strOriginalLanguage">Original language:</string>
 </resources>
