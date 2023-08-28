@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <!--                <import type="android.view.View" />-->
-
         <variable
             name="movie"
             type="com.example.movieapp.model.Movie" />
@@ -99,6 +96,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/strAdult"
+                                android:paddingEnd="8dp"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
@@ -121,6 +119,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/strVideo"
+                                android:paddingEnd="8dp"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
@@ -143,6 +142,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/strOriginalLanguage"
+                                android:paddingEnd="8dp"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
@@ -212,6 +212,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/strPopularity"
+                                android:paddingEnd="8dp"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
@@ -234,6 +235,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/strVoteAverage"
+                                android:paddingEnd="8dp"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
@@ -256,6 +258,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/strVoteCount"
+                                android:paddingEnd="8dp"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
 
@@ -268,10 +271,7 @@
                                 tools:text="754" />
                         </LinearLayout>
                     </LinearLayout>
-
                 </androidx.cardview.widget.CardView>
-
-
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

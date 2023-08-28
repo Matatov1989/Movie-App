@@ -52,7 +52,7 @@
                     tools:text="Back to the Future" />
 
                 <TextView
-                    android:id="@+id/textViewRating"
+                    android:id="@+id/textViewAvg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"

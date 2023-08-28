@@ -41,7 +41,6 @@ open class BaseFragment : Fragment() {
         val callback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 this.isEnabled = false
-//                requireActivity().onBackPressedDispatcher.onBackPressed()
                 requireActivity().supportFragmentManager.popBackStack()
             }
         }

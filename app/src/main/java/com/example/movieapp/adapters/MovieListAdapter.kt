@@ -33,6 +33,7 @@ class MovieListAdapter (
             .into(holder.imageViewPoster)
 
         holder.textViewTitle.text = movies[position].title
+        holder.textViewAvg.text = movies[position].vote_average
 
         holder.itemView.setOnClickListener {
             onItemClick.invoke(movies[position])
@@ -44,5 +45,6 @@ class MovieListAdapter (
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageViewPoster: ImageView = itemView.findViewById(R.id.imageViewPoster)
         val textViewTitle: TextView = itemView.findViewById(R.id.textViewTitle)
+        val textViewAvg: TextView = itemView.findViewById(R.id.textViewAvg)
     }
 }

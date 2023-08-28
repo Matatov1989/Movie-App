@@ -7,7 +7,6 @@ import com.example.movieapp.data.MovieUiState
 import com.example.movieapp.enums.MovieType
 import com.example.movieapp.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
