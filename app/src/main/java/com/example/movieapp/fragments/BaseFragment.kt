@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -84,6 +85,7 @@ open class BaseFragment : Fragment() {
                     }
                     R.id.actionFavorite -> {
                         movieDetailsViewModel.insertFavorite(movieDetail)
+                        Toast.makeText(activity, getString(R.string.toastAddToFavorite), Toast.LENGTH_LONG).show()
                     }
                 }
                 return false
