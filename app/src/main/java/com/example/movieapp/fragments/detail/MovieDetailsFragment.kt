@@ -32,7 +32,8 @@ class MovieDetailsFragment : BaseFragment() {
 
     private fun getMovieDetails() {
         arguments?.let {
-            binding.movie = MovieDetailsFragmentArgs.fromBundle(it).MovieDetails
+            movieDetail = MovieDetailsFragmentArgs.fromBundle(it).MovieDetails
+            binding.movie = movieDetail
         }
     }
 }

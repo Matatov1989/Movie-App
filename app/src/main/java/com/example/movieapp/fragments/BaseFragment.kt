@@ -15,19 +15,25 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieapp.R
 import com.example.movieapp.enums.MovieType
+import com.example.movieapp.fragments.detail.MovieDetailsViewModel
 import com.example.movieapp.fragments.movie.MoviesViewModel
+import com.example.movieapp.model.Movie
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 open class BaseFragment : Fragment() {
 
     lateinit var movieViewModel: MoviesViewModel
+    lateinit var movieDetailsViewModel: MovieDetailsViewModel
     lateinit var progressDialog: Dialog
+
+    lateinit var movieDetail: Movie
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         movieViewModel = ViewModelProvider(this)[MoviesViewModel::class.java]
+        movieDetailsViewModel = ViewModelProvider(this)[MovieDetailsViewModel::class.java]
 
         progressDialog = Dialog(requireContext())
 
@@ -70,10 +76,10 @@ open class BaseFragment : Fragment() {
                         movieViewModel.getMovies(MovieType.PlayingNow)
                     }
                     R.id.actionFilterFavorites -> {
-
+                        movieViewModel.getMovies(MovieType.Favorite)
                     }
                     R.id.actionFavorite -> {
-
+                        movieDetailsViewModel.insertFavorite(movieDetail)
                     }
                 }
                 return false

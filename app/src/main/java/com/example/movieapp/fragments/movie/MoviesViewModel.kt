@@ -7,6 +7,7 @@ import com.example.movieapp.data.MovieUiState
 import com.example.movieapp.enums.MovieType
 import com.example.movieapp.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -25,12 +26,14 @@ class MoviesViewModel @Inject constructor(private val repository: MovieRepositor
             delay(1000L)
             try {
                 movieUiState.value = MovieUiState.Loading(true)
-                val response = repository.getPopularMovies(typeMovie)
-                val list = response.body()?.results
-//                val list = response.body()?.products?.sortedBy { it.discount == 0 }
-
-                list?.let {
-                    movieUiState.value = MovieUiState.Success(it)
+                if (typeMovie == MovieType.Favorite) {
+                    movieUiState.value = MovieUiState.Success(repository.getFavoriteMovie())
+                } else {
+                    val response = repository.getMovies(typeMovie)
+                    val list = response.body()?.results
+                    list?.let {
+                        movieUiState.value = MovieUiState.Success(it)
+                    }
                 }
             } catch (e: Exception) {
                 Log.e("RESULT_EXCEPTION", "result: $e")
