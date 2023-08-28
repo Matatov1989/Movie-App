@@ -47,14 +47,15 @@ open class BaseFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(callback)
     }
 
-    fun initToolbar(toolbar: Toolbar, title: String, isBackButton: Boolean = false) {
-        (activity as AppCompatActivity).setSupportActionBar(toolbar)
-        (activity as AppCompatActivity).supportActionBar?.title = title
+    fun initToolbar(toolbar: Toolbar? = null, title: String? = null, isBackButton: Boolean = false) {
+
+        toolbar?.let { (activity as AppCompatActivity).setSupportActionBar(it) }
+        title?.let { (activity as AppCompatActivity).supportActionBar?.title = it }
 
         if (isBackButton) {
             (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-            toolbar.setNavigationOnClickListener {
+            toolbar?.setNavigationOnClickListener {
                 requireActivity().supportFragmentManager.popBackStack()
             }
         }
@@ -71,12 +72,15 @@ open class BaseFragment : Fragment() {
                 when (menuItem.itemId) {
                     R.id.actionFilterPopular -> {
                         movieViewModel.getMovies(MovieType.Popular)
+                        initToolbar(title = getString(R.string.titlePopularMovies))
                     }
                     R.id.actionFilterCurrentlyBroadcast -> {
                         movieViewModel.getMovies(MovieType.PlayingNow)
+                        initToolbar(title = getString(R.string.titlePlayingNowMovies))
                     }
                     R.id.actionFilterFavorites -> {
                         movieViewModel.getMovies(MovieType.Favorite)
+                        initToolbar(title = getString(R.string.titleFavoriteMovies))
                     }
                     R.id.actionFavorite -> {
                         movieDetailsViewModel.insertFavorite(movieDetail)

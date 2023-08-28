@@ -4,7 +4,9 @@
     <string name="actionCurrentlyBroadcast">currently broadcast</string>
     <string name="actionFavorites">my favorites</string>
     <string name="pleaseWait">Please Wait...</string>
-    <string name="titleMovies">Movies</string>
+    <string name="titlePopularMovies">Popular Movies</string>
+    <string name="titlePlayingNowMovies">Play Now Movies</string>
+    <string name="titleFavoriteMovies">Favorite Movies</string>
     <string name="titleDetails">Details</string>
     <string name="strDescription">Description:</string>
     <string name="strPopularity">Popularity:</string>
