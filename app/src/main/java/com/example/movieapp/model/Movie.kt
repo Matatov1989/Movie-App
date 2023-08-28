@@ -2,11 +2,15 @@ package com.example.movieapp.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+@Entity(tableName = "MovieTable")
 data class Movie(
+    @PrimaryKey
+    val id: Int,
     val adult: Boolean,
     val backdrop_path: String,
-    val id: Int,
     val original_language: String,
     val original_title: String,
     val overview: String,
@@ -19,9 +23,9 @@ data class Movie(
     val vote_count: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readInt(),
         parcel.readByte() != 0.toByte(),
         parcel.readString()!!,
-        parcel.readInt(),
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
@@ -35,9 +39,9 @@ data class Movie(
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(id)
         parcel.writeByte(if (adult) 1 else 0)
         parcel.writeString(backdrop_path)
-        parcel.writeInt(id)
         parcel.writeString(original_language)
         parcel.writeString(original_title)
         parcel.writeString(overview)
